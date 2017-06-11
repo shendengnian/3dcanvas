@@ -1,74 +1,110 @@
-//封装一个代替getElementById()的方法
+var timer = null,
+    index = 0,
+    pics = byId("banner").getElementsByTagName("div"),
+    dots = byId("dots").getElementsByTagName("span"),
+    size = pics.length,
+    prev = byId("prev"),
+    next = byId("next"),
+    menuItems = byId("menu-content").getElementsByTagName("div"),
+    subMenu = byId("sub-menu"),
+    subItems = subMenu.getElementsByClassName("inner-box");
+
 function byId(id){
-	return typeof(id) === "string"?document.getElementById(id):id;
+	return typeof(id)==="string"?document.getElementById(id):id;
 }
 
-//全局变量
-var index = 0,
-	timer = null,
-	pics = byId("banner").getElementsByTagName("div"),
-	dots = byId("dots").getElementsByTagName("span"),
-	prev = byId("prev"),
-	next = byId("next"),
-	len = pics.length;
+// 清除定时器,停止自动播放
+function stopAutoPlay(){
+	if(timer){
+       clearInterval(timer);
+	}
+}
+
+// 图片自动轮播
+function startAutoPlay(){
+   timer = setInterval(function(){
+       index++;
+       if(index >= size){
+          index = 0;
+       }
+       changeImg();
+   },3000)
+}
+
+function changeImg(){
+   for(var i=0,len=dots.length;i<len;i++){
+       dots[i].className = "";
+       pics[i].style.display = "none";
+   }
+   dots[index].className = "active";
+   pics[index].style.display = "block";
+}
 
 function slideImg(){
-	var main = byId("main");
-	//滑过清除定时器，离开继续
-	main.onmouseover = function(){
-		//滑过清除定时器
-		if(timer){clearInterval(timer);}
-	}
-	main.onmouseout = function(){
-		timer = setInterval(function(){
-			index++; 
-			if(index >= len){
-				index = 0;
-			}
-			//切换图片
-			 changeImg();
-		},3000);
-	}
-	//自动在main上触发鼠标离开的事件
-	main.onmouseout();
-	
-	//遍历所有点击。且绑定点击事件，点击圆点切换图片
-	for(var d=0;d<len;d++){
-		//给所有span添加一个id的属性，值为d，作为当前span的索引
-		dots[d].id = d;
-		dots[d].onclick = function(){
-			//改变index位当前span的id值
-			index = this.id;
-			//调用changeImg,实现切换图片
-			changeImg();
-		}
-	}
-	
-	//下一张
-	next.onclick = function(){
-		index++;
-		if(index >= len){index=0;}
-		changeImg();
-	}
-	
-	//上一张
-	prev.onclick = function(){
-		index--;
-		if(index<0){index=len-1;}
-		changeImg();
-	}
-}
+    var main = byId("main");
+    var banner = byId("banner");
+    var menuContent = byId("menu-content");
+    main.onmouseover = function(){
+    	stopAutoPlay();
+    }
+    main.onmouseout = function(){
+    	startAutoPlay();
+    }
+    main.onmouseout();
 
-//切换图片
-function changeImg(){
-	//遍历banner下多有的div和dots下所有的span，，将div隐藏和span清除类
-	for(var i=0;i<len;i++){
-		pics[i].style.display = "none";
-		dots[i].className = "";
-	}
-	//根据index索引找到当前div与span，将其显示出来和将span设为当前
-	pics[index].style.display = 'block';
-	dots[index].className = "active";
+    // 点击导航切换
+    for(var i=0,len=dots.length;i<len;i++){
+       dots[i].id = i;
+       dots[i].onclick = function(){
+           index = this.id;
+           changeImg();
+       }
+    }
+
+    // 下一张
+    next.onclick = function(){
+       index++;
+       if(index>=size) index=0;
+       changeImg();
+    }
+    
+    // 上一张
+    prev.onclick = function(){
+       index--;
+       if(index<0) index=size-1;
+       changeImg();
+    }
+
+    // 菜单
+    for(var m=0,mlen=menuItems.length;m<mlen;m++){
+        menuItems[m].setAttribute("data-index",m);
+        menuItems[m].onmouseover = function(){
+            subMenu.className = "sub-menu";
+            var idx = this.getAttribute("data-index");
+            for(var j=0,jlen=subItems.length;j<jlen;j++){
+               subItems[j].style.display = 'none';
+               menuItems[j].style.background = "none";
+            }
+            subItems[idx].style.display = "block";
+            menuItems[idx].style.background = "rgba(0,0,0,0.1)";
+        }
+    }
+
+    subMenu.onmouseover = function(){
+        this.className = "sub-menu";
+    }
+
+    subMenu.onmouseout = function(){
+        this.className = "sub-menu hide";
+    }
+
+    banner.onmouseout = function(){
+        subMenu.className = "sub-menu hide";
+    }
+
+    menuContent.onmouseout = function(){
+        subMenu.className = "sub-menu hide";
+    }
 }
 
 slideImg();
