@@ -56,7 +56,7 @@
 		width: 100%;
 		height: 13rem;
 		margin: 0.5rem auto 0 auto;
-		overflow-x:hidden;
+		overflow-y:hidden;
 	}
 	
 	.container .wrap {
@@ -263,8 +263,11 @@
 	
 	
 	.content {
+		width: 100%;
+		height:4rem;
 		padding-bottom: 2rem;
 		background-color: #fff;
+		overflow: auto;
 	}
 	
 	.content .item {
@@ -298,7 +301,7 @@
 		flex: 1;
 		width: 100%;
 		max-height: 2rem;
-		overflow-x: hidden;
+		overflow-y: hidden;
 		line-height: 1rem;
 		margin: 0 0.5rem;
 		font-size: 0.7rem;
