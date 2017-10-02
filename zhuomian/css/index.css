@@ -2,7 +2,9 @@
 		padding: 0;
 		margin: 0;
 	}
-	
+	body{
+		overflow-x: hidden;
+	}
 	a {
 		text-decoration: none;
 	}
@@ -54,7 +56,7 @@
 		width: 100%;
 		height: 13rem;
 		margin: 0.5rem auto 0 auto;
-		overflow: hidden;
+		overflow:hidden;
 	}
 	
 	.container .wrap {
@@ -243,7 +245,7 @@
 	}
 	
 	.mal-didang .dingdang-right {
-		width: 33.3%;
+		width: 33.4%;
 		color: rgb(255, 189, 48);
 	}
 	
