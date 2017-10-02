@@ -180,3 +180,60 @@ ol {
 .nav .nav-text-indent2{
 	text-indent: 0.35rem;
 }
+.mal{
+	width:100%;
+	height: 2rem;
+	box-shadow:inset 0 5px 5px rgb(248, 245, 246);
+	border-top:1px solid;
+	border-bottom: 1px solid;
+	border-color: rgb(213, 213, 213); 
+}
+.mal .mal-text-left{
+	padding: 0.4rem;
+	color:rgb(140,124,101);
+	font-size:0.9rem;
+	float:left;
+}
+.mal .mal-text-right{
+	padding: 0.5rem;
+	color:rgb(140,124,101);
+	font-size:0.7rem;
+	float: right;
+}
+.mal-didang{
+	position: relative;
+	width:100%;
+	height:4rem;
+	border-bottom:1px solid;
+	box-shadow: 10px 10px 5px rgb(248, 245, 246);
+	border-color: rgb(213, 213, 213); 
+}
+.mal-didang ul li{
+	position: relative;
+	left:3rem;
+	top:2rem;
+	float:left;
+	font-size:0.8rem;
+}
+.mal-didang .didang-left{
+	width: 33.3%;
+	color:rgb(222,18,21);
+}
+.mal-didang .dingdang-center{
+	width: 33.3%;
+	color:rgb(255,105,49);
+}
+.mal-didang .dingdang-right{
+	width: 33.3%;
+	color:rgb(255,189,48);
+}
+.mal-didang .didang-one{
+	position: absolute;
+	bottom:1.2rem;
+}
+.mal-didang .num1{
+	position: absolute;
+	left:0.8rem;
+	bottom:1.05rem;
+	font-size:0.7rem;
+}
