@@ -1,0 +1,25 @@
+ @charset "utf-8";
+
+*{
+	margin: 0;
+	padding:0;
+}
+ .parent-box{
+     margin: 5%;
+     width:90%;
+     padding-bottom: 90%;
+     text-align: center;
+ }
+ .parent-box .child-box{
+     width: 30%;
+     padding-bottom: 30%;
+     background-color: #FFCC00;
+     margin: 1.6%;
+     border-radius: 10px;
+     float: left;
+ }
+
+
+
+
+
