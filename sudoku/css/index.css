@@ -8,14 +8,13 @@
      margin: 5%;
      width:90%;
      padding-bottom: 90%;
-     text-align: center;
  }
  .parent-box .child-box{
      width: 30%;
      padding-bottom: 30%;
      background-color: #FFCC00;
      margin: 1.6%;
-     border-radius: 10px;
+     border-radius: 5%;
      float: left;
  }
 
