@@ -59,14 +59,15 @@ a{
 }
 .total-img p{
     color:#fff;
+    font-size: 0.8rem;
 }
 .total-img .left-text{
     position: absolute;
-    left:5rem;
+    left:5.4rem;
     top:7.5rem;
 }
 .total-img .right-text{
     position: absolute;
-    right:5rem;
+    right:5.4rem;
     top:7.5rem;
 }
