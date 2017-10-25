@@ -37,6 +37,7 @@ body{
     color: #ffffff;
     float: left;
     margin-left: 0.15rem;
+    font-size: 0.2rem;
 }
 .main .name{
     position: relative;
