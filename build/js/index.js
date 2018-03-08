@@ -1,0 +1,1 @@
+window.onload=function(){CanvasParticle({vx:4,vy:4,height:2,width:2,count:200,color:"121, 162, 185",stroke:"130,255,255",dist:6e3,e_dist:2e4,max_conn:10})},$(function(){$(window).scroll(function(){100<=$(window).scrollTop()?$(".actGotop").fadeIn(300):$(".actGotop").fadeOut(300)}),$(".actGotop").click(function(){$("html,body").animate({scrollTop:"0px"},800)})});
